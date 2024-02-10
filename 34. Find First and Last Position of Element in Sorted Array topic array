@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> ans;
+        vector<int> finalans;
+        int p=-1;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==target){
+                ans.push_back(i);
+                p=i;
+            }
+        }
+        if(ans.size()==0){
+            ans.push_back(-1);
+            ans.push_back(-1);
+            return ans;
+        }
+        if(ans.size()==1){
+
+            ans.push_back(p);
+            return ans;
+        }
+        finalans.push_back(ans[0]);
+        finalans.push_back(ans[ans.size()-1]);
+        return finalans;
+    }
+};
